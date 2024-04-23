@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Jquery</title>
+    <script>
+        $(function(){ // public static void main 
+            // alert("Hola Mundo jQuery");
+            $('.btnEjecutar').click(function() {
+                $('#titulo1').hide();
+                alert("valor:" + $('.numero').val());
+            });
+        })
+
+    </script>
+</head>
+<body>
+    <h1 id="titulo1">Hola Mundo</h1>
+    <h2 class="titulo2">Buenos días, Buenas tardes </h2>
+    <input type="text" class="numero"><br>
+    <button class="btnEjecutar">Ejecutar</button><br/>
+</body>
+</html>
