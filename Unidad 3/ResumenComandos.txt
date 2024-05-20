@@ -7,7 +7,7 @@ activate
 pip install django
 
 cd..
-cd.. (llegar a la raiz de carpeta de trabajo (mientorno))
+cd.. (llegar a la raiz de carpeta de trabajo (Proyecto006))
 django-admin startproject instituto
 cd instituto
 dir (confirmar si esta el archivo manage.py)
@@ -15,5 +15,5 @@ py manage.py runserver (ir a la url para ver el cohete)
 (abrir otra terminal)
 cd instituto
 dir (confirmar si esta el archivo manage.py)
-py manage.py startapp alumno
+py manage.py startapp alumnos
 (configurar settings.py)
