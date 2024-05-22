@@ -1,11 +1,16 @@
 from django.db import models
 # Pasos:
 # 1.- Preparar la migración
-# py manage.py makemigrations alumno
+# py manage.py makemigrations alumnos
 # 2.- ejecutar la migración (traspaso a la base de datos)
 # py manage.py migrate
 
 # bajar extensión: sqLite3 editor o similar
+
+# acceder a django admin 
+# crear usuario con py manage.py createsuperuser
+# patri patri
+
 
 # Create your models here.
 
