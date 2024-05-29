@@ -30,6 +30,7 @@
             <td>{{ alumno.direccion}}
             <td>{{ alumno.email}}
             <td>{% if alumno.activo == 1 %} Si {% else %} No {% endif %}
+                <td>{{ alumno.activo|yesno:"Si,No"}}</td>
     {% endfor %}
     </table>
     {# Ejercicio: Agregar la lista de alumnos en una tabla (hmtl) todos sus datos  #}
