@@ -1,0 +1,23 @@
+
+{% extends "plantillaBase.html"  %}
+{% block tituloPestana %} Listado de Escuelas  {% endblock %}
+{% block tituloPrincipal %} Escuelas {% endblock %}
+{% block mensaje %} {% endblock %}
+{% block contenido %} {% endblock %}
+{% block listado %} 
+{# copiar la tabla completa desde el index2 #}
+    <table class="table table-resposive">
+        <tr>
+            <th>id</th>
+            <th>Nombre</th>
+            <th>Activo</th>
+        </tr>
+    {% for item in listado %}
+        <tr>
+            <td>{{ item.id }}
+            <td>{{ item.nombre }}
+            <td>{{ item.activo|yesno:"Si,No"}}</td>
+    {% endfor %}
+    </table>
+{% endblock %}
+
