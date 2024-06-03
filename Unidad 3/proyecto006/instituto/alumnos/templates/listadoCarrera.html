@@ -1,0 +1,25 @@
+
+{% extends "plantillaBase.html"  %}
+{% block tituloPestana %} Listado de Carreras  {% endblock %}
+{% block tituloPrincipal %} Carreras {% endblock %}
+{% block mensaje %} {% endblock %}
+{% block contenido %} {% endblock %}
+{% block listado %} 
+{# copiar la tabla completa desde el index2 #}
+    <table class="table table-resposive">
+        <tr>
+            <th>id</th>
+            <th>Escuela</th>
+            <th>Nombre</th>
+            <th>Activo</th>
+        </tr>
+    {% for item in listado %}
+        <tr>
+            <td>{{ item.id }}
+            <td>{{ item.escuela.nombre }}
+            <td>{{ item.nombre }}
+            <td>{{ item.activo|yesno:"Si,No"}}</td>
+    {% endfor %}
+    </table>
+{% endblock %}
+
