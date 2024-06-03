@@ -3,7 +3,10 @@
 {% block tituloPestana %} Listado de Escuelas  {% endblock %}
 {% block tituloPrincipal %} Escuelas {% endblock %}
 {% block mensaje %} {% endblock %}
-{% block contenido %} {% endblock %}
+{% block contenido %} 
+<a href="{% url 'ingresarEscuela' %}" class="btn btn-primary">Ingresar</a>
+<br><br>
+{% endblock %}
 {% block listado %} 
 {# copiar la tabla completa desde el index2 #}
     <table class="table table-resposive">

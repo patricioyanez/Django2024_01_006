@@ -26,3 +26,7 @@ def listadoCarrera(resquest):
     listado = Carrera.objects.all()
     context = {"listado": listado}
     return render(resquest, 'listadoCarrera.html', context)
+
+def ingresarEscuela(request):    
+    context = {}
+    return render(request, 'ingresarEscuela.html', context)
