@@ -30,3 +30,8 @@ def listadoCarrera(resquest):
 def ingresarEscuela(request):    
     context = {}
     return render(request, 'ingresarEscuela.html', context)
+
+def ingresarCarrera(request):    
+    escuelas = Escuela.objects.all()
+    context = {"escuelas": escuelas}
+    return render(request, 'ingresarCarrera.html', context)
