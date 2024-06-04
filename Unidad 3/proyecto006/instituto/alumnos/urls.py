@@ -13,4 +13,4 @@ urlpatterns = [
     path('eliminarCarrera/<str:pk>', views.eliminarCarrera, name='eliminarCarrera'),
 ]
 
-# agregar eliminar para carrera 
+# Tarea: Para alumno: agregar link en listado y crear el ingresar
