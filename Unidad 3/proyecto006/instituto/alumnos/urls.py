@@ -9,4 +9,7 @@ urlpatterns = [
     path('listadoCarrera', views.listadoCarrera, name='listadoCarrera'),
     path('ingresarEscuela', views.ingresarEscuela, name='ingresarEscuela'),
     path('ingresarCarrera', views.ingresarCarrera, name='ingresarCarrera'),
+    path('eliminarEscuela/<str:pk>', views.eliminarEscuela, name='eliminarEscuela'),
 ]
+
+# agregar eliminar para carrera 

@@ -35,3 +35,16 @@ def ingresarCarrera(request):
     escuelas = Escuela.objects.all()
     context = {"escuelas": escuelas}
     return render(request, 'ingresarCarrera.html', context)
+
+def eliminarEscuela(request,pk):
+    context = {}
+    try:
+        item = Escuela.objects.get(pk = pk)
+        item.delete()
+        context['exito'] = 'El registro fue eliminado'
+    except:
+        context['error'] = 'Error al eliminar el registro'
+    
+    listado = Escuela.objects.all()
+    context['listado'] = listado
+    return render(request, 'listadoEscuela.html', context)
