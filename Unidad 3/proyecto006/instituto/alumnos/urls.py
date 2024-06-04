@@ -10,6 +10,7 @@ urlpatterns = [
     path('ingresarEscuela', views.ingresarEscuela, name='ingresarEscuela'),
     path('ingresarCarrera', views.ingresarCarrera, name='ingresarCarrera'),
     path('eliminarEscuela/<str:pk>', views.eliminarEscuela, name='eliminarEscuela'),
+    path('eliminarCarrera/<str:pk>', views.eliminarCarrera, name='eliminarCarrera'),
 ]
 
 # agregar eliminar para carrera 

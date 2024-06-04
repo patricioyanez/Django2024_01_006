@@ -48,3 +48,16 @@ def eliminarEscuela(request,pk):
     listado = Escuela.objects.all()
     context['listado'] = listado
     return render(request, 'listadoEscuela.html', context)
+
+def eliminarCarrera(request,pk):
+    context = {}
+    try:
+        item = Carrera.objects.get(pk = pk)
+        item.delete()
+        context['exito'] = 'El registro fue eliminado'
+    except:
+        context['error'] = 'Error al eliminar el registro'
+    
+    listado = Carrera.objects.all()
+    context['listado'] = listado
+    return render(request, 'listadoCarrera.html', context)

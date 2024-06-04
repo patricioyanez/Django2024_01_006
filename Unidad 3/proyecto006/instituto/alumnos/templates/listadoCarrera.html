@@ -13,14 +13,20 @@
             <th>id</th>
             <th>Escuela</th>
             <th>Nombre</th>
+            <th>Versión</th>
             <th>Activo</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
         </tr>
     {% for item in listado %}
         <tr>
             <td>{{ item.id }}
             <td>{{ item.escuela.nombre }}
             <td>{{ item.nombre }}
+            <td>{{ item.version }}
             <td>{{ item.activo|yesno:"Si,No"}}</td>
+            <td><a href="{#% url 'modificarCarrera' %#}" class="btn btn-warning" >Modificar</a></td>
+            <td><a href="{% url 'eliminarCarrera' pk=item.id %}" class="btn btn-danger" >Eliminar</a></td>
     {% endfor %}
     </table>
 {% endblock %}
