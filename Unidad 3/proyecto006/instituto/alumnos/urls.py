@@ -11,6 +11,7 @@ urlpatterns = [
     path('ingresarCarrera', views.ingresarCarrera, name='ingresarCarrera'),
     path('eliminarEscuela/<str:pk>', views.eliminarEscuela, name='eliminarEscuela'),
     path('eliminarCarrera/<str:pk>', views.eliminarCarrera, name='eliminarCarrera'),
+    path('guardarEscuela', views.guardarEscuela, name='guardarEscuela'),
 ]
 
-# Tarea: Para alumno: agregar link en listado y crear el ingresar
+# Ejercicio: realizar guardar para carrera

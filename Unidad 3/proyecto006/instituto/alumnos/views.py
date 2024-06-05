@@ -61,3 +61,22 @@ def eliminarCarrera(request,pk):
     listado = Carrera.objects.all()
     context['listado'] = listado
     return render(request, 'listadoCarrera.html', context)
+
+def guardarEscuela(request):
+    context = {}
+    # captura de solicitud realizada por el usuario
+    if request.method == 'POST':
+        # captura de datos del form a variables
+        nombre = request.POST['txtNombre']
+        activo = 'chkActivo' in request.POST
+
+        # detecta si el boton guardar fue presionado
+        if 'btnGuardar' in request.POST:
+            # validar!!!
+            if len(nombre.strip()) < 1:
+                context['error'] = "No especifico el nombre de la escuela"
+            else:
+                Escuela.objects.create(nombre=nombre, activo=activo)
+                context['exito'] = "Los datos fueron guardados"
+
+    return render(request, 'ingresarEscuela.html', context)
