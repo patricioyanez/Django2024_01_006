@@ -12,6 +12,7 @@ urlpatterns = [
     path('eliminarEscuela/<str:pk>', views.eliminarEscuela, name='eliminarEscuela'),
     path('eliminarCarrera/<str:pk>', views.eliminarCarrera, name='eliminarCarrera'),
     path('guardarEscuela', views.guardarEscuela, name='guardarEscuela'),
+    path('buscarEscuela/<str:pk>', views.buscarEscuela, name='buscarEscuela'),
 ]
 
 # Ejercicio: realizar guardar para carrera

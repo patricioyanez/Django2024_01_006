@@ -67,6 +67,7 @@ def guardarEscuela(request):
     # captura de solicitud realizada por el usuario
     if request.method == 'POST':
         # captura de datos del form a variables
+        id = request.POST['txtId']
         nombre = request.POST['txtNombre']
         activo = 'chkActivo' in request.POST
 
@@ -76,7 +77,25 @@ def guardarEscuela(request):
             if len(nombre.strip()) < 1:
                 context['error'] = "No especifico el nombre de la escuela"
             else:
-                Escuela.objects.create(nombre=nombre, activo=activo)
+                if id == "0":
+                    Escuela.objects.create(nombre=nombre, activo=activo)
+                else:
+                    item = Escuela.objects.get(pk = id)
+                    item.nombre = nombre
+                    item.activo = activo
+                    item.id = id
+                    item.save()
+                
                 context['exito'] = "Los datos fueron guardados"
 
+    return render(request, 'ingresarEscuela.html', context)
+
+def buscarEscuela(request, pk):
+    context = {}
+    try:
+        item = Escuela.objects.get(pk = pk)
+
+        context['item'] = item
+    except:
+        context['error'] = 'Error al eliminar el registro'
     return render(request, 'ingresarEscuela.html', context)

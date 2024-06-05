@@ -35,7 +35,7 @@
             <td>{{ item.id }}
             <td>{{ item.nombre }}
             <td>{{ item.activo|yesno:"Si,No"}}</td>
-            <td><a href="{#% url 'modificarEscuela' %#}" class="btn btn-warning" >Modificar</a></td>
+            <td><a href="{% url 'buscarEscuela' pk=item.id  %}" class="btn btn-warning" >Modificar</a></td>
             <td><a href="{% url 'eliminarEscuela' pk=item.id %}" class="btn btn-danger" >Eliminar</a></td>
     {% endfor %}
     </table>
