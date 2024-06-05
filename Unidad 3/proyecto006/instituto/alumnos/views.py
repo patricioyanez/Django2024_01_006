@@ -80,7 +80,13 @@ def guardarEscuela(request):
                 if id == "0":
                     Escuela.objects.create(nombre=nombre, activo=activo)
                 else:
-                    item = Escuela.objects.get(pk = id)
+                    # 1ra forma: buscar item a modificar. puede causar excepción si no existe
+                    # item = Escuela.objects.get(pk = id)
+                    
+                    # 2da forma: crear un objeto, completar los atributos y save.
+                    # Puede causar un nuevo ingreso de datos si el id no coincide con alguno
+                    # registrado en la tabla
+                    item = Escuela() 
                     item.nombre = nombre
                     item.activo = activo
                     item.id = id
