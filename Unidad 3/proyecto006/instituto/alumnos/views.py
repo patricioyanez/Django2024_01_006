@@ -103,5 +103,5 @@ def buscarEscuela(request, pk):
 
         context['item'] = item
     except:
-        context['error'] = 'Error al eliminar el registro'
+        context['error'] = 'Elemento seleccionado no encontrado'
     return render(request, 'ingresarEscuela.html', context)
