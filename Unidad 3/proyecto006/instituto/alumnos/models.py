@@ -46,3 +46,11 @@ class Alumno(models.Model):
     def __str__(self):
         return self.rut + "-" + self.dv + " " + self.nombre + " " + self.apellido1 + " " + self.apellido2
 
+class Usuario(models.Model):
+    email = models.CharField(primary_key=True, max_length=100)
+    nombre      = models.CharField(max_length=50)
+    apellido1   = models.CharField(max_length=50)
+    apellido2   = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.email + " " + self.nombre + " " + self.apellido1 + " " + self.apellido2
