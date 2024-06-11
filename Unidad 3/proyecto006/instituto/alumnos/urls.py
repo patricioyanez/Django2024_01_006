@@ -16,4 +16,6 @@ urlpatterns = [
     path('buscarEscuela/<str:pk>', views.buscarEscuela, name='buscarEscuela'),
 ]
 
-# Ejercicio: realizar guardar para carrera
+# Ejercicio: realizar guardar para carrera y alumno
+# agregar link en el menu para ingresar a usuario
+# permitir listar los usuarios al presionar el boton listar en form usuario
