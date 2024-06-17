@@ -9,8 +9,8 @@ class UsuarioForm(ModelForm):
         model = Usuario
         fields= "__all__"
         labels={
-            'apellido1' : 'Apellido Paterno',
-            'apellido2' : 'Apellido Materno'
+            'apellido1' : '1er Apellido',
+            'apellido2' : '2do Apellido'
         }
         widgets = {
             'email' : forms.TextInput(attrs={

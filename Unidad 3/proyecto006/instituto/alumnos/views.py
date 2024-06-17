@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Alumno, Escuela, Carrera
+from .models import Alumno, Escuela, Carrera, Usuario
 from .forms import UsuarioForm
 # Create your views here.
 
@@ -63,6 +63,19 @@ def eliminarCarrera(request,pk):
     context['listado'] = listado
     return render(request, 'listadoCarrera.html', context)
 
+def eliminarUsuario(request,pk):
+    context = {}
+    try:
+        item = Usuario.objects.get(pk = pk)
+        item.delete()
+        context['exito'] = 'El registro fue eliminado'
+    except:
+        context['error'] = 'Error al eliminar el registro'
+
+    context['listado'] = Usuario.objects.all()
+    context['form'] = UsuarioForm()
+    return render(request, 'ingresarUsuarioForm.html', context)
+
 def guardarEscuela(request):
     context = {}
     # captura de solicitud realizada por el usuario
@@ -109,6 +122,7 @@ def guardarUsuario(request):
                 context['exito'] = "Los datos fueron guardados"
             else:
                 context['error'] = "Error al guardar los datos"
+    context['listado'] = Usuario.objects.all()
     return render(request, 'ingresarUsuarioForm.html', context)
 
 def buscarEscuela(request, pk):
