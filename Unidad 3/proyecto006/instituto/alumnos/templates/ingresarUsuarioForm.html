@@ -19,6 +19,7 @@
 {% block contenido %} 
     <form action="{% url 'guardarUsuario' %}" method="post">
         {% csrf_token %}
+        <input type="hidden" name="txtId" value="0{{id}}">
         <div class="row">
             <div class="col-12 col-md-6 offset-md-3">
                 <table class="table table-resposive">
@@ -54,7 +55,7 @@
                     <td>{{item.nombre}}</td>
                     <td>{{item.apellido1}}</td>
                     <td>{{item.apellido2}}</td>
-                    <td><a href="#">Modificar</a></td>
+                    <td><a href="{% url 'buscarUsuario' pk=item.pk %}">Modificar</a></td>
                     <td><a href="{% url 'eliminarUsuario' pk=item.pk %}">Eliminar</a></td>
                 </tr>
     {% endfor %}

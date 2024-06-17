@@ -134,3 +134,16 @@ def buscarEscuela(request, pk):
     except:
         context['error'] = 'Elemento seleccionado no encontrado'
     return render(request, 'ingresarEscuela.html', context)
+
+def buscarUsuario(request, pk):    
+    context = {}
+    try:
+        item = Usuario.objects.get(pk = pk)
+        context['form'] = UsuarioForm(instance=item)
+        context['id'] = item.pk
+    except:
+        context['form'] = UsuarioForm()
+        context['error'] = 'Elemento seleccionado no encontrado'
+
+    context['listado'] = Usuario.objects.all()
+    return render(request, 'ingresarUsuarioForm.html', context)

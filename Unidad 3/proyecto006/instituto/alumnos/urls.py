@@ -15,6 +15,7 @@ urlpatterns = [
     path('guardarEscuela', views.guardarEscuela, name='guardarEscuela'),
     path('guardarUsuario', views.guardarUsuario, name='guardarUsuario'),
     path('buscarEscuela/<str:pk>', views.buscarEscuela, name='buscarEscuela'),
+    path('buscarUsuario/<str:pk>', views.buscarUsuario, name='buscarUsuario'),
 ]
 
 # Ejercicio: realizar guardar para carrera y alumno
