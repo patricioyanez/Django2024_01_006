@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from .models import Alumno, Escuela, Carrera, Usuario
 from .forms import UsuarioForm
-
+from django.contrib.auth.decorators import login_required
 from instituto.settings import MEDIA_URL
 # Create your views here.
 
+@login_required
 def menu(request):
     return render(request, 'plantillaBase.html', {})
 
@@ -12,33 +13,33 @@ def index(request):
     context = {}
     return render(request, 'index.html', context)
 
-
+@login_required
 def listadoEstudiante(resquest):
     # select * from alumno
     # uso de ORM de Django
     alumnos = Alumno.objects.all()
     context = {"alumnos": alumnos}
     return render(resquest, 'listadoEstudiante.html', context)
-
+@login_required
 def listadoEscuela(resquest):
     listado = Escuela.objects.all()
     context = {"listado": listado}
     return render(resquest, 'listadoEscuela.html', context)
-
+@login_required
 def listadoCarrera(resquest):
     listado = Carrera.objects.all()
     context = {"listado": listado}
     return render(resquest, 'listadoCarrera.html', context)
-
+@login_required
 def ingresarEscuela(request):    
     context = {}
     return render(request, 'ingresarEscuela.html', context)
-
+@login_required
 def ingresarCarrera(request):    
     escuelas = Escuela.objects.all()
     context = {"escuelas": escuelas}
     return render(request, 'ingresarCarrera.html', context)
-
+@login_required
 def eliminarEscuela(request,pk):
     context = {}
     try:
@@ -51,7 +52,7 @@ def eliminarEscuela(request,pk):
     listado = Escuela.objects.all()
     context['listado'] = listado
     return render(request, 'listadoEscuela.html', context)
-
+@login_required
 def eliminarCarrera(request,pk):
     context = {}
     try:
@@ -64,7 +65,7 @@ def eliminarCarrera(request,pk):
     listado = Carrera.objects.all()
     context['listado'] = listado
     return render(request, 'listadoCarrera.html', context)
-
+@login_required
 def eliminarUsuario(request,pk):
     context = {}
     try:
@@ -77,7 +78,7 @@ def eliminarUsuario(request,pk):
     context['listado'] = Usuario.objects.all()
     context['form'] = UsuarioForm()
     return render(request, 'ingresarUsuarioForm.html', context)
-
+@login_required
 def guardarEscuela(request):
     context = {}
     # captura de solicitud realizada por el usuario
@@ -111,7 +112,7 @@ def guardarEscuela(request):
                 context['exito'] = "Los datos fueron guardados"
 
     return render(request, 'ingresarEscuela.html', context)
-
+@login_required
 def guardarUsuario(request):
     context = {'form': UsuarioForm()}
     # captura de solicitud realizada por el usuario
@@ -133,7 +134,7 @@ def guardarUsuario(request):
     context['listado'] = Usuario.objects.all()
     context['MEDIA_URL'] = MEDIA_URL
     return render(request, 'ingresarUsuarioForm.html', context)
-
+@login_required
 def buscarEscuela(request, pk):
     context = {}
     try:
@@ -143,7 +144,7 @@ def buscarEscuela(request, pk):
     except:
         context['error'] = 'Elemento seleccionado no encontrado'
     return render(request, 'ingresarEscuela.html', context)
-
+@login_required
 def buscarUsuario(request, pk):    
     context = {}
     try:
