@@ -17,7 +17,7 @@
     {% endif %}
 {% endblock %}
 {% block contenido %} 
-    <form action="{% url 'guardarUsuario' %}" method="post">
+    <form action="{% url 'guardarUsuario' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="hidden" name="txtId" value="0{{id}}">
         <div class="row">
@@ -42,6 +42,7 @@
         <div class="col-12">
             <table class="table table-resposive">
                 <tr>
+                    <th>Imagen</th>
                     <th>Email</th>
                     <th>Nombre</th>
                     <th>1er apellido</th>
@@ -51,6 +52,7 @@
                 </tr>
     {% for item in listado %}
                 <tr>
+                    <td><img src="{{MEDIA_URL}}{{item.foto}}" alt="No Disponible" width="100px" height="100px"></td>
                     <td>{{item.email}}</td>
                     <td>{{item.nombre}}</td>
                     <td>{{item.apellido1}}</td>

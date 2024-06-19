@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Alumno, Escuela, Carrera, Usuario
 from .forms import UsuarioForm
+
+from instituto.settings import MEDIA_URL
 # Create your views here.
 
 def menu(request):
@@ -112,17 +114,24 @@ def guardarEscuela(request):
 
 def guardarUsuario(request):
     context = {'form': UsuarioForm()}
-    # captura de solicitu2d realizada por el usuario
+    # captura de solicitud realizada por el usuario
     if request.method == 'POST':
         # detecta si el boton guardar fue presionado
         if 'btnGuardar' in request.POST:
-            form = UsuarioForm(request.POST)
+            item = None
+            if request.POST['txtId'] != "0":
+                item = Usuario.objects.get(pk=request.POST['txtId'])
+
+
+            form = UsuarioForm(request.POST, request.FILES, instance=item)
             if form.is_valid():
                 form.save()
                 context['exito'] = "Los datos fueron guardados"
             else:
+                print(form.errors)
                 context['error'] = "Error al guardar los datos"
     context['listado'] = Usuario.objects.all()
+    context['MEDIA_URL'] = MEDIA_URL
     return render(request, 'ingresarUsuarioForm.html', context)
 
 def buscarEscuela(request, pk):

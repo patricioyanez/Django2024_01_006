@@ -23,8 +23,12 @@ class UsuarioForm(ModelForm):
             }),'apellido1' : forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Ingrese su apellido paterno'
-            }),'apellido2' : forms.TextInput(attrs={
+            }),
+            'apellido2' : forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Ingrese su apellido materno'
             }),
+            'foto' :  forms.ClearableFileInput(attrs={
+                'class': 'form-control'
+            })
         }

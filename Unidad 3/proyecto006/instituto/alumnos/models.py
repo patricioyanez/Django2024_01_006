@@ -51,6 +51,7 @@ class Usuario(models.Model):
     nombre      = models.CharField(max_length=50)
     apellido1   = models.CharField(max_length=50)
     apellido2   = models.CharField(max_length=50)
+    foto        = models.FileField(upload_to='imagenes/', null=True)
     
     def __str__(self):
         return self.email + " " + self.nombre + " " + self.apellido1 + " " + self.apellido2
